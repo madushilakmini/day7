@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Childcom from './Childcom';
 
 function App() {
+  const[childName,setChildname]=useState("Default");
+     const receiveName=(name)=>{
+      setChildname(name);
+     }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Hello React I'm Parent</h2>
+      <p>Parent:My child said:{childName}</p>
+      <Childcom setfun={receiveName}/>
     </div>
   );
 }
